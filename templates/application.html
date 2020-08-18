@@ -1,4 +1,5 @@
 {% load render_bundle from webpack_loader %}
+{% load webpack_static from webpack_loader %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,8 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    {% comment %} TODO: Replace with static serve favicon {% endcomment %}
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="icon" href="{% webpack_static 'favicon.ico' %}">
     <title>Django Vue Chat App</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
@@ -16,13 +16,13 @@
     <noscript>
       <strong>We're sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-<div id="app">
-     <app></app>
- </div>
+    <div id="app">
+        <app></app>
+    </div>
 
-{% render_bundle 'app' %}
+    {% render_bundle 'app' %}
 
-<!-- built files will be auto injected -->
-  
-</body>
+    <!-- built files will be auto injected -->
+      
+    </body>
 </html>
