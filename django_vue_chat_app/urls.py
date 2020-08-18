@@ -19,9 +19,9 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",
-        TemplateView.as_view(template_name="application.html"),
-        name="app",
+    path('',
+        TemplateView.as_view(template_name='application.html'),
+        name='app',
     ),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/', include('chat.urls')),
